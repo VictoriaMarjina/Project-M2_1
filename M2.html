@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='ru'>
+
+<head>
+    <title>Рассчет банковского вклада с капитализацией</title>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' href='./M2.css'>
+</head>
+
+<body>
+    <header>
+        <img class="logo" src="./Yelo-Bank-Logo-696x696.jpg" alt="Лого-Yelo">
+    </header>
+    <main>
+        <section class="calculator">
+            <div class="text"><p class = "left-text">Начальная сумма вклада (₽)</p>
+                <input id='sum1' type='text' >
+                <p class="right-text">Введите первоначальную сумму вклада</p>
+            </div>
+            <div class="text"><p class = "left-text">Сумма ежемесячного пополнения (₽)</p>
+                <input id='monthlycredit' type='text'>
+                <p class="right-text">Минимаьнй взнос может быть равен 0</p>
+            </div>
+            <div class='text'><p class = "left-text">Процентная ставка (%)</p>
+                <input id='percent' type='text'>
+                <p class="right-text">Введите процентную ставку от 1 до 100</p>      
+                </div>
+            <div class='text'><p class = "left-text">Срок вклада (дней)</p>
+                <input id='period' type='text'>
+                <p class="right-text">Введите срок вклада в днях</p>
+                </div>
+            <button id='calculate'>Рассчитать</button>
+            <div id='error'></div>
+        </section>
+    </main> 
+    <script src='./M2.js'></script>
+</body>
+
+</html>
