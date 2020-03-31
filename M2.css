@@ -45,7 +45,7 @@ input {
 .logo {
     width: 160px;
     margin: 15px;
-    border-radius: 75px;
+    border-radius: 78px;
 }
 body {
     background-image: url(./fon.jpg);
@@ -63,4 +63,17 @@ body {
     text-align: center;
     font-size: 19px;
     border-radius: 20px;
+}
+
+.error {
+    text-align: center;
+    color: tomato;
+    font-size: 20px;
+
+}
+
+.new-sum {
+    text-align: center;
+    color:#158347;
+    font-size: 20px;
 }
