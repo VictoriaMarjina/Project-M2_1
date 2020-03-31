@@ -1,35 +1,40 @@
-let sum1 = +document.getElementById('sum1').value;
-let monthlyCredit = +document.getElementById('monthlycredit').value;
-let percent = +document.getElementById('percent').value;
-let period = +document.getElementById('period').value;
-let error = document.getElementById('error');
+let answer = document.getElementById('answer');
 let button = document.getElementById('calculate');
+let sum2 = 0;
 
-function check() {
-   if (sum1 > 0 && monthlyCredit >= 0 && percent < 100 && percent > 0 && period> 0 && Number.isInteger(period)){
-      calculator(sum1, monthlyCredit, percent, period);
-      alert(calculator(sum1, monthlyCredit, percent, period));
-  }
-   else {
+function checkInfo() {
+   let sum1 = +document.getElementById('sum1').value;
+   let monthlyCredit = +document.getElementById('monthlycredit').value;
+   let percent = +document.getElementById('percent').value;
+   let per = +document.getElementById('period').value;
+   let time = 0;
+
+   if (sum1 > 0 && monthlyCredit >= 0 && percent < 100 && percent > 0 && per > 0 && Number.isInteger(per)){
+      time = Math.floor(per / 30);
+      calculator(sum1, monthlyCredit, percent, per, time);
+      answer.innerHTML = `<p class='new-sum'>${calculator(sum1, monthlyCredit, percent, per, time)}</p>`;
+  } else {
    console.error('NaN');
+      answer.innerHTML = "<p class='error'>Неверные данные!</p>";
  }
+ }
+
+
+
+function calculator(sum1, monthlyCredit, percent, period, time) {
+
+  sum2 = sum1;
+
+   if (sum1 <= 0 || monthlyCredit < 0 || percent <= 0 && percent > 100 || period < 0) {
+      answer.innerHTML = "<p class='error'>Неверные данные!</p>";
+      return NaN;
+   }
+
+   for (let i = 0; i < time ; i++) {
+      sum2 = sum2 * (1+ percent/100/12) + monthlyCredit;
+      return Math.ceil(sum2);  
+   }
+
 }
-   
-function calculator(sum1, monthlyCredit, percent, period) {
-   let time = Math.floor(period / 30);
-   let sum2 = sum1;
-if (sum1 <= 0 || monthlyCredit < 0 || percent <= 0 && percent > 100 || period < 0) {
 
-   error.insertAdjacentHTML('beforeend', '<p>Неверные данные</p>');
-   return NaN;
-}
-for (i = 1; i < time ; i++) {
-
-   sum2 = sum2 * (1+ percent/100/12) + monthlyCredit;
-}
-
-return ( Math.ceil(sum2));
-
-}
-
-button.addEventListener('click', check);
+button.addEventListener('click', checkInfo);
